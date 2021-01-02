@@ -7,6 +7,7 @@ import Pusher from "pusher";
 // app config
 const app = express();
 const port = process.env.PORT || 9000;
+const uri = process.env.MONGODB_URI;
 
 const pusher = new Pusher({
   appId: "1131454",
@@ -25,8 +26,8 @@ app.use((req, res, next) => {
 });
 
 // DB config
-const connection_url =
-  "mongodb+srv://admin:clQb9xdOQuNUvuN9@cluster0.mbqpl.mongodb.net/whatsappdb?retryWrites=true&w=majority";
+// const connection_url =
+//   "mongodb+srv://admin:clQb9xdOQuNUvuN9@cluster0.mbqpl.mongodb.net/whatsappdb?retryWrites=true&w=majority";
 
 mongoose.connect(connection_url, {
   useCreateIndex: true,
@@ -34,7 +35,6 @@ mongoose.connect(connection_url, {
   useUnifiedTopology: true,
 });
 
-// ????
 const db = mongoose.connection;
 db.once("open", () => {
   console.log("DB Connecting");
