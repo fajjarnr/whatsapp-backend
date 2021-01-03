@@ -31,7 +31,7 @@ app.use(cors());
 const connection_url =
   "mongodb+srv://admin:clQb9xdOQuNUvuN9@cluster0.mbqpl.mongodb.net/whatsappdb?retryWrites=true&w=majority";
 
-mongoose.connect(connection_url, {
+mongoose.connect(uri, {
   useCreateIndex: true,
   useNewUrlParser: true,
   useUnifiedTopology: true,
